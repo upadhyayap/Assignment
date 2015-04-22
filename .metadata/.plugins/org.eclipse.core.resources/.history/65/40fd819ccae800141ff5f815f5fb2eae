@@ -1,0 +1,58 @@
+/**
+ * 
+ */
+package com.pramati.imaginea.utilities;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+/**
+ * @author anandu
+ *
+ */
+public class Helper {
+
+	/**
+	 * 
+	 */
+	public static boolean isDirectMatchAvalaible(Set<String> Content,
+			String serachWord) {
+		boolean matchAvalaible = false;
+		if (Content != null && Content.contains(serachWord)) {
+			matchAvalaible = true;
+			System.out.println("Direct ---"+serachWord);
+		}
+		return matchAvalaible;
+	}
+
+	public static boolean isZigZagMatchAvailaible(Set<String> pContent,
+			String searchWord, String delimiter) {
+		boolean matchAvalaible = false;
+		String[] sourceWord;
+		String[] targetWord;
+		if (searchWord != null) {
+			sourceWord = searchWord.split(delimiter);
+		} else {
+			return false;
+		}
+		Iterator<String> contentIterator = pContent.iterator();
+		while (contentIterator.hasNext()) {
+			String tergetserach = contentIterator.next();
+			targetWord = tergetserach.split(delimiter);
+			if (findCommonData(sourceWord, targetWord).size() >= 2 ) {
+				matchAvalaible = true;		
+				System.out.println("ZigZag---"+searchWord+"---Matched with--"+tergetserach);
+			}
+		}
+		return matchAvalaible;
+	}
+
+	public static Set<String> findCommonData(String[] sourceArray,
+			String[] targetArray) {
+		Set<String> common = new HashSet<String>(Arrays.asList(sourceArray));
+		common.retainAll(new HashSet<>(Arrays.asList(targetArray)));
+		return common;
+	}
+}

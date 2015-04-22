@@ -18,15 +18,15 @@ public class Helper {
 	 * 
 	 */
 	public static boolean isDirectMatchAvalaible(Set<String> Content,
-			String searchword) {
+			String serachWord) {
 		boolean matchAvalaible = false;
-		if (Content != null && Content.contains(searchword)) {
+		if (Content != null && Content.contains(serachWord)) {
 			matchAvalaible = true;
 		}
 		return matchAvalaible;
 	}
 
-	public static boolean isZigZagMatchAvailaible(Set<String> Content,
+	public static boolean isZigZagMatchAvailaible(Set<String> pContent,
 			String searchWord, String delimiter) {
 		boolean matchAvalaible = false;
 		String[] sourceWord;
@@ -36,7 +36,7 @@ public class Helper {
 		} else {
 			return false;
 		}
-		Iterator<String> contentIterator = Content.iterator();
+		Iterator<String> contentIterator = pContent.iterator();
 		while (contentIterator.hasNext()) {
 			targetWord = contentIterator.next().split(delimiter);
 			if (findCommonData(sourceWord, targetWord).size() >= 2 ) {

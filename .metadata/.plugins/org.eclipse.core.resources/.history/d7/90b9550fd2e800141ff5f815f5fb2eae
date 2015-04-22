@@ -18,9 +18,9 @@ public class Helper {
 	 * 
 	 */
 	public static boolean isDirectMatchAvalaible(Set<String> Content,
-			String searchword) {
+			String serachWord) {
 		boolean matchAvalaible = false;
-		if (Content != null && Content.contains(searchword)) {
+		if (Content != null && Content.contains(serachWord)) {
 			matchAvalaible = true;
 		}
 		return matchAvalaible;
